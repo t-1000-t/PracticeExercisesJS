@@ -7,8 +7,13 @@ const users = [
 function getAllPropValues(arr, prop) {
   // eslint-disable-next-line prefer-const
   let result = [];
+  if (arr.length === 0) {
+    return result = [];
+  }
   for (const user of arr) {
-    result.push(user[prop]);
+    if (prop in user) {
+      result.push(user[prop]);
+    }
   }
   return result;
 }
