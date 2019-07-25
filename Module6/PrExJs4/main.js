@@ -22,10 +22,10 @@ class Car {
   }
 
   static getSpecs(car) {
-    console.log('maxSpeed: ', car.maxSpeed = 100),
-    console.log('speed: ', car.speed = 50),
-    console.log('running: ', car.running = true),
-    console.log('distance: ', car.distance = 100);
+    console.log('maxSpeed:', car.maxSpeed = 100),
+    console.log('speed:', car.speed = 50),
+    console.log('running:', car.running = true),
+    console.log('distance:', car.distance = 100);
   }
 
   turnOn() {
