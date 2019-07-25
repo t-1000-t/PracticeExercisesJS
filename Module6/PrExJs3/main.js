@@ -28,24 +28,26 @@ class Car {
   }
 
   accelerate(spd) {
-    if (this.speed < this.maxSpeed) {
-      this.speed = spd;
+    if (spd < this.maxSpeed) {
+      return this.speed = spd;
     }
+    return this.speed = null;
     // Записывает в поле speed полученное значение, при условии что
     // оно не больше чем значение свойства maxSpeed
   }
 
   decelerate(spd) {
-    if (this.speed < this.maxSpeed && this.speed > 0) {
-      this.speed = spd;
+    if (spd < this.maxSpeed && spd > 0) {
+      return this.speed = spd;
     }
+    return this.speed = null;
     // Записывает в поле speed полученное значение, при условии что
     // оно не больше чем значение свойства maxSpeed и не меньше нуля
   }
 
   drive(hours) {
-    if (this.turnOn()) {
-      this.distance = this.speed * hours;
+    if (this.running === true) {
+      this.distance = hours * this.speed;
     }
     // Добавляет в поле distance киллометраж (hours умноженное на значение поля speed),
     // но только в том случае если машина заведена!
@@ -53,3 +55,20 @@ class Car {
 }
 
 const car = new Car({ maxSpeed: 100 });
+
+car.turnOn();
+console.log(car.running); // true
+car.turnOff();
+console.log(car.running); // false
+car.turnOn();
+console.log(car.running); // true
+car.accelerate(25);
+console.log(car.speed); // 0
+car.accelerate(20);
+console.log(car.speed); // 80
+car.decelerate(-90);
+console.log(car.speed); // null
+car.decelerate(50);
+console.log(car.speed); // 50
+car.drive(10);
+console.log(car.distance); // 500
