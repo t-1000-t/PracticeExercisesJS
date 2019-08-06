@@ -36,9 +36,10 @@ const createListGallery = ({ url, alt }) => {
   const listGallery = document.createElement('li');
   listGallery.classList.add('list');
 
-  const imgGallery = document.createElement('img');
-  imgGallery.src = url;
-
+  const img = imgGallery = document.createElement('img');
+  // img.src = url;
+  img.setAttribute('src', url);
+  img.setAttribute('width', '300');
   const textGallery = document.createElement('p');
   textGallery.textContent = alt;
 
