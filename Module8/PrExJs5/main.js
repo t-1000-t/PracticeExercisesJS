@@ -1,5 +1,7 @@
 const elementsSize = ['Extra Small', 'Small', 'Medium', 'Large', 'Extra Large', 'Extra Extra Large'];
 
+const result = document.createElement('div');
+result.classList.add('result');
 
 const collectInputData = (inputs) => {
   const elem = document.createElement('li');
@@ -8,7 +10,7 @@ const collectInputData = (inputs) => {
   const elemLi = document.createElement('input');
   elemLi.type = 'checkbox';
   elemLi.name = 'size';
-  elemLi.value = 'xs';
+  elemLi.value = inputs;
 
   const elemLabel = document.createElement('label');
   elemLabel.classList.add();
@@ -30,16 +32,19 @@ btnOk.value = 'ok';
 const btnReset = document.createElement('input');
 btnReset.type = 'reset';
 btnReset.value = 'res';
-list.append(...listAll, btnOk, btnReset);
+btn.append(btnOk, btnReset);
+list.append(...listAll, btn, result);
 
-// const values = document.querySelectorAll('input[type="checkbox"]');
-// const sbmt = document.querySelector('input[type="submit"]');
+const values = document.querySelectorAll('input[type="checkbox"]');
+console.log(values);
+const sbmt = document.querySelector('input[type="submit"]');
+console.log(sbmt);
 
-// sbmt.addEventListener('click', getvalues(e));
+const getValues = (e) => {
+  console.log(values);
+  e.preventDefault();
+  const checked = [...values].filter(e => e.checked);
+  result.textContent = checked.map(e => e.value).join(', ');
+};
 
-// const getvalues = (e) => {
-//   console.log(values);
-//   e.prevenDefault();
-//   const checked = [...values].filter(e => e.checked);
-//   list.textContent = checked.map(e => e.value).join(' ');
-// };
+sbmt.addEventListener('click', getValues);
