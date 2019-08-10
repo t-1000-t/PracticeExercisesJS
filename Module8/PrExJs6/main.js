@@ -13,26 +13,27 @@ const filmDescription = ({
 }) => {
   const movie = document.createElement('div');
   movie.classList.add('movie');
-
+  
   const img = document.createElement('img');
   img.classList.add('movie__image');
   img.src = image;
   img.alt = alt;
-
-
-
+  
   const movie__body = document.createElement('div');
   movie__body.classList.add('movie__body');
-
+  
   const movie__title = document.createElement('h2');
   movie__title.classList.add('movie__title');
   movie__title.textContent = name;
+  
   const movie__description = document.createElement('p');
   movie__description.classList.add('movie__description');
   movie__description.textContent = text;
+  
   const movie__date = document.createElement('p');
   movie__date.classList.add('movie__date');
   movie__date.textContent = release;
+  
   const movie__rating = document.createElement('p');
   movie__rating.classList.add('movie__rating');
   movie__rating.textContent = status;
