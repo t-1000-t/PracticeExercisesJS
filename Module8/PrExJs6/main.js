@@ -27,19 +27,15 @@ const filmDescription = ({
   const movie__title = document.createElement('h2');
   movie__title.classList.add('movie__title');
   movie__title.textContent = name;
-  console.log(name);
   const movie__description = document.createElement('p');
   movie__description.classList.add('movie__description');
   movie__description.textContent = text;
-  console.log(text);
   const movie__date = document.createElement('p');
   movie__date.classList.add('movie__date');
   movie__date.textContent = release;
-  console.log(release);
   const movie__rating = document.createElement('p');
   movie__rating.classList.add('movie__rating');
   movie__rating.textContent = status;
-  console.log(status);
   movie.append(img, movie__body, movie__title, movie__description, movie__date, movie__rating);
 
   return movie;
