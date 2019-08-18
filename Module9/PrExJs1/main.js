@@ -1,10 +1,11 @@
+/* eslint-disable radix */
 const btn = document.querySelector('.button');
 
-function hendleBtnClick() {
+function hendleBtnClick(event) {
   event.preventDefault();
   // eslint-disable-next-line prefer-const
-  let counteText = btn.textContent;
-  btn.textContent = parseInt(counteText) + 1;
+  let counteClickBtn = btn.textContent;
+  btn.textContent = parseInt(counteClickBtn) + 1;
 }
 
 btn.addEventListener('click', hendleBtnClick);
