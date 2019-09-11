@@ -26,11 +26,13 @@ const chengeColor = {
       }
     }, 10000);
     refs.btnStart.disabled = true;
+    refs.addClass.style.active = false;
   },
   btnStopActive() {
     if (refs.addClass.style.backgroundColor) {
       refs.btnStart.disabled = false;
     }
+    clearInterval(this.stopInter);
   },
 };
 
