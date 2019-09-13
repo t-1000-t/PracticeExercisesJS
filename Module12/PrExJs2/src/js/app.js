@@ -15,7 +15,7 @@ const refs = {
   btnStop: document.querySelector('[data-action="stop"]'),
 };
 
-const chengeColor = {
+const changeColor = {
   stopInter: null,
   btnStartActive() {
     this.stopInter = setInterval(() => {
@@ -24,7 +24,7 @@ const chengeColor = {
       if (refs.addClass.style.backgroundColor) {
         refs.addClass.style.backgroundColor = rand;
       }
-    }, 10000);
+    }, 1000);
     refs.btnStart.disabled = true;
     refs.addClass.style.active = false;
   },
@@ -32,11 +32,11 @@ const chengeColor = {
     if (refs.addClass.style.backgroundColor) {
       refs.btnStart.disabled = false;
     }
-    clearInterval(this.stopInter);
+    clearTimeout(this.stopInter);
   },
 };
 
 console.log(refs.btnStart);
 
-refs.btnStart.addEventListener('click', chengeColor.btnStartActive.bind(chengeColor));
-refs.btnStop.addEventListener('click', chengeColor.btnStopActive.bind(chengeColor));
+refs.btnStart.addEventListener('click', changeColor.btnStartActive.bind(changeColor));
+refs.btnStop.addEventListener('click', changeColor.btnStopActive.bind(changeColor));
