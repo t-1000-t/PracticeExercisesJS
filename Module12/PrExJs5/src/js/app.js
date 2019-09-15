@@ -14,23 +14,20 @@ function getValueNum(value) {
 }
 
 function getValueStr() {
-  reject = console.log('Некорректный ввод!');
+  console.log('Некорректный ввод!');
 }
 
 const processOrder = (value) => {
   const promise = new Promise((resolve, reject) => {
     setTimeout(() => {
-      if (isNumber(value)) {
-        getValueNum(value);
-      }
-      if (!isNumber(value)) {
-        getValueStr();
-      }
+      // eslint-disable-next-line no-unused-expressions
+      isNumber(value) ? resolve(getValueNum(value)) : reject(getValueStr(value));
     }, 500);
-    return promise;
   });
+  return promise;
 };
 
+console.log(processOrder());
 // Вызовы функции для проверки
 processOrder(50)
   .then(console.log) // Ваш заказ готов!
@@ -47,5 +44,3 @@ processOrder(500)
 processOrder('lorem')
   .then(console.log)
   .catch(console.log); // Некорректный ввод!
-
-// getTextValue('hfh');
